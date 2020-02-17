@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
+import { GlobalConst } from '../appConstants/AppConstants';
 
 export default function RateAndTitle(props) {
 	const { room } = props;
@@ -66,6 +67,6 @@ const styles = StyleSheet.create({
 		height: 100,
 		width: 100,
 		borderWidth: 2,
-		borderColor: 'rgb(0,70,254)'
+		borderColor: GlobalConst.AppColor
 	}
 });

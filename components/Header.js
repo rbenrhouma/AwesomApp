@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
+import {  GlobalConst } from '../appConstants/AppConstants';
+
 
 export default function Header(props) {
 	//const { data } = props;
@@ -7,15 +9,20 @@ export default function Header(props) {
 
 	return (
 		<View style={styles.container}>
-			<Text>AwesomApp</Text>
+			<Text style={styles.headerTitle}> AwesomApp</Text>
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
-		height: 100,
-		flexDirection: 'row'
-		//	backgroundColor: GlobalConst.AppColor
+		height: 80,
+		flexDirection: 'row',
+		backgroundColor: GlobalConst.AppColor
+	},
+	headerTitle: {
+		flex: 1,
+		fontSize: 20,
+		textAlign: 'center'
 	}
 });

@@ -3,9 +3,9 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingVi
 import { Entypo } from '@expo/vector-icons';
 import { AsyncStorage } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-
 import Constants from 'expo-constants';
 import axios from 'axios';
+import { GlobalConst } from '../appConstants/AppConstants';
 
 export default function Login() {
 	const [ mail, setMail ] = useState();
@@ -59,7 +59,7 @@ export default function Login() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'rgb(0,70,254)',
+		backgroundColor: GlobalConst.AppColor,
 		paddingTop: Constants.statusBarHeight
 	},
 	welcome: {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 		flex: 2,
 		width: '100%',
 		alignItems: 'center',
-		backgroundColor: 'rgb(0,70,254)'
+		backgroundColor: GlobalConst.AppColor
 	},
 	input: {
 		color: 'white',
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 		marginTop: 50
 	},
 	buttonTitle: {
-		color: 'rgb(0,70,254)',
+		color: GlobalConst.AppColor,
 		fontSize: 34
 	}
 });

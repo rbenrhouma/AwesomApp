@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { AsyncStorage, View, ActivityIndicator } from 'react-native';
 import Constants from 'expo-constants';
+import { GlobalConst } from '../appConstants/AppConstants';
 import { useNavigation } from '@react-navigation/core';
 
 export default function SplashScreen() {
@@ -22,7 +23,7 @@ export default function SplashScreen() {
 	return (
 		<View
 			style={{
-				backgroundColor: 'rgb(0,70,254)',
+				backgroundColor: GlobalConst.AppColor,
 				justifyContent: 'center',
 				alignItems: 'center',
 				flex: 1
