@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
-import {  GlobalConst } from '../appConstants/AppConstants';
-
+import { GlobalConst } from '../appConstants/AppConstants';
 
 export default function Header(props) {
 	//const { data } = props;
@@ -18,7 +17,10 @@ const styles = StyleSheet.create({
 	container: {
 		height: 80,
 		flexDirection: 'row',
-		backgroundColor: GlobalConst.AppColor
+		backgroundColor: GlobalConst.AppColor,
+		padding: 25,
+		margin: 10,
+		borderRadius: 10
 	},
 	headerTitle: {
 		flex: 1,

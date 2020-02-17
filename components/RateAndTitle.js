@@ -1,28 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
 import { GlobalConst } from '../appConstants/AppConstants';
+import Stars from './Stars';
 
 export default function RateAndTitle(props) {
 	const { room, taille } = props;
 	localSize = taille;
-	console.log(props.size);
 
 	if (!room) return null;
 	if (!localSize) localSize = 20;
-	console.log(localSize);
-	const displayStars = (rate) => {
-		const stars = [];
-		let i = 0;
-
-		for (; i < rate; i++) {
-			stars.push(<Entypo key={i} name="star" size={18} color="#FDCC0D" />);
-		}
-		for (; i < 5; i++) {
-			stars.push(<Entypo key={i} name="star" size={18} color="silver" />);
-		}
-		return stars;
-	};
 
 	const contextStyles = StyleSheet.create({
 		descriptionText: {
@@ -32,7 +18,7 @@ export default function RateAndTitle(props) {
 			borderRadius: localSize === 'XL' ? 30 : localSize === 'L' ? 25 : 10,
 			height: localSize === 'XL' ? 100 : localSize === 'L' ? 80 : 40,
 			width: localSize === 'XL' ? 100 : localSize === 'L' ? 80 : 40,
-			borderWidth: 2,
+			borderWidth: localSize === 'XL' ? 2 : localSize === 'L' ? 1 : 0,
 			borderColor: GlobalConst.AppColor
 		}
 	});
@@ -47,8 +33,7 @@ export default function RateAndTitle(props) {
 					{room.title}
 				</Text>
 				<View style={styles.starWrapper}>
-					{displayStars(room.ratingValue)}
-					<Text>{room.ratingValue} reviews</Text>
+					<Stars rate={room.ratingValue} />
 				</View>
 			</View>
 		</View>
@@ -57,7 +42,6 @@ export default function RateAndTitle(props) {
 
 const styles = StyleSheet.create({
 	container: {
-		marginTop: 10,
 		width: '100%',
 		flex: 1,
 		flexDirection: 'row'

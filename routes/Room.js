@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 15
   },
   description: {
-    fontSize: 20,
+    fontSize: 16,
     marginVertical: 15
   }
 });
