@@ -39,7 +39,7 @@ export default function ListItem(props) {
           {room.price}€
         </Text>
       </ImageBackground> */}
-			<RateAndTitle room={room} />
+			<RateAndTitle room={room} taille={'XL'}/>
 		</TouchableOpacity>
 	);
 }

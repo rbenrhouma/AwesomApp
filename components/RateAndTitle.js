@@ -4,10 +4,13 @@ import { Entypo } from '@expo/vector-icons';
 import { GlobalConst } from '../appConstants/AppConstants';
 
 export default function RateAndTitle(props) {
-	const { room } = props;
+	const { room, taille } = props;
+	localSize = taille;
+	console.log(props.size);
 
 	if (!room) return null;
-
+	if (!localSize) localSize = 20;
+	console.log(localSize);
 	const displayStars = (rate) => {
 		const stars = [];
 		let i = 0;
@@ -21,13 +24,26 @@ export default function RateAndTitle(props) {
 		return stars;
 	};
 
+	const contextStyles = StyleSheet.create({
+		descriptionText: {
+			fontSize: localSize === 'XL' ? 20 : localSize === 'L' ? 15 : 10
+		},
+		avatar: {
+			borderRadius: localSize === 'XL' ? 30 : localSize === 'L' ? 25 : 10,
+			height: localSize === 'XL' ? 100 : localSize === 'L' ? 80 : 40,
+			width: localSize === 'XL' ? 100 : localSize === 'L' ? 80 : 40,
+			borderWidth: 2,
+			borderColor: GlobalConst.AppColor
+		}
+	});
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.avatarWrapper}>
-				<Image style={styles.avatar} source={{ uri: room.user.account.photos[0] }} />
+				<Image style={contextStyles.avatar} source={{ uri: room.user.account.photos[0] }} />
 			</View>
 			<View style={styles.titleWrapper}>
-				<Text style={styles.titleTitle} numberOfLines={1} ellipsizeMode="tail">
+				<Text style={contextStyles.descriptionText} numberOfLines={1} ellipsizeMode="tail">
 					{room.title}
 				</Text>
 				<View style={styles.starWrapper}>
@@ -51,9 +67,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'column',
 		marginLeft: 10
 	},
-	titleTitle: {
-		fontSize: 18
-	},
+
 	starWrapper: {
 		flexDirection: 'row',
 		alignItems: 'center'
@@ -61,12 +75,5 @@ const styles = StyleSheet.create({
 	avatarWrapper: {
 		flex: 1,
 		alignItems: 'flex-end'
-	},
-	avatar: {
-		borderRadius: 30,
-		height: 100,
-		width: 100,
-		borderWidth: 2,
-		borderColor: GlobalConst.AppColor
 	}
 });

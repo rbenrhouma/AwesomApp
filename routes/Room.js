@@ -50,7 +50,7 @@ export default function Room() {
         {wrapPhotos(data.photos)}
       </Swiper>
       <View style={styles.infoWrapper}>
-        <RateAndTitle room={data} />
+        <RateAndTitle room={data} taille={'L'} />
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => {

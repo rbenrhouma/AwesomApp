@@ -33,7 +33,7 @@ export default function Map(props) {
 								}}
 							>
 								<Callout onPress={() => navigation.navigate('Room', { id: room._id })} style={{ padding: 10 }}>
-									<RateAndTitle room={room} />
+									<RateAndTitle room={room} taille={'S'} />
 								</Callout>
 							</Marker>
 						);
