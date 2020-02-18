@@ -14,7 +14,7 @@ import MapView, { Marker } from "react-native-maps";
 
 import RateAndTitle from "../components/RateAndTitle";
 
-export default function Room() {
+export default function Good() {
   const [data, setData] = useState();
   const [fullText, setFullText] = useState(false);
   const route = useRoute();
@@ -50,7 +50,7 @@ export default function Room() {
         {wrapPhotos(data.photos)}
       </Swiper>
       <View style={styles.infoWrapper}>
-        <RateAndTitle room={data} taille={'L'} />
+        <RateAndTitle good={data} taille={'L'} />
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => {

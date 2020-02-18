@@ -4,10 +4,10 @@ import { GlobalConst } from '../appConstants/AppConstants';
 import Stars from './Stars';
 
 export default function RateAndTitle(props) {
-	const { room, taille } = props;
+	const { good, taille } = props;
 	localSize = taille;
 
-	if (!room) return null;
+	if (!good) return null;
 	if (!localSize) localSize = 20;
 
 	const contextStyles = StyleSheet.create({
@@ -19,6 +19,7 @@ export default function RateAndTitle(props) {
 			height: localSize === 'XL' ? 100 : localSize === 'L' ? 80 : 40,
 			width: localSize === 'XL' ? 100 : localSize === 'L' ? 80 : 40,
 			borderWidth: localSize === 'XL' ? 2 : localSize === 'L' ? 1 : 0,
+			margin: localSize === 'XL' ? 0 : localSize === 'L' ? 10 : 0,
 			borderColor: GlobalConst.AppColor
 		}
 	});
@@ -26,14 +27,14 @@ export default function RateAndTitle(props) {
 	return (
 		<View style={styles.container}>
 			<View style={styles.avatarWrapper}>
-				<Image style={contextStyles.avatar} source={{ uri: room.user.account.photos[0] }} />
+				<Image style={contextStyles.avatar} source={{ uri: good.user.account.photos[0] }} />
 			</View>
 			<View style={styles.titleWrapper}>
 				<Text style={contextStyles.descriptionText} numberOfLines={1} ellipsizeMode="tail">
-					{room.title}
+					{good.title}
 				</Text>
 				<View style={styles.starWrapper}>
-					<Stars rate={room.ratingValue} />
+					<Stars rate={good.ratingValue} />
 				</View>
 			</View>
 		</View>

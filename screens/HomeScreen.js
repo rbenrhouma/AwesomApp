@@ -13,10 +13,6 @@ function HomeScreen(props) {
 	return (
 		<View style={styles.container}>
 			<StatusBar barStyle="light-content" />
-			{/* <Button
-        title="Go to Profile"
-        onPress={() => navigation.navigate("Profile", { name: "Pseudo" })}
-      /> */}
 			<FlatList
 				data={data.rooms}
 				keyExtractor={(item) => String(item._id)}

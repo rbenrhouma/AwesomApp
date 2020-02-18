@@ -29,7 +29,7 @@ export default function List(props) {
 			contentContainerStyle={{
 				justifyContent: 'center'
 			}}
-			renderItem={({ item }) => <ListItem room={item} />}
+			renderItem={({ item }) => <ListItem good={item} />}
 		/></>
 	);
 }

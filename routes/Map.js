@@ -23,17 +23,17 @@ export default function Map(props) {
 			>
 				{locations &&
 					locations.rooms &&
-					locations.rooms.map((room) => {
+					locations.rooms.map((good) => {
 						return (
 							<Marker
-								key={room._id}
+								key={good._id}
 								coordinate={{
-									latitude: room.loc[1],
-									longitude: room.loc[0]
+									latitude: good.loc[1],
+									longitude: good.loc[0]
 								}}
 							>
-								<Callout onPress={() => navigation.navigate('Room', { id: room._id })} style={{ padding: 10 }}>
-									<RateAndTitle room={room} taille={'S'} />
+								<Callout onPress={() => navigation.navigate('Good', { id: good._id })} style={{ padding: 10 }}>
+									<RateAndTitle good={good} taille={'S'} />
 								</Callout>
 							</Marker>
 						);

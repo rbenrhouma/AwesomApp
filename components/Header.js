@@ -8,7 +8,7 @@ export default function Header(props) {
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.headerTitle}> AwesomApp</Text>
+			<Text style={styles.headerTitle}> Awesom Application</Text>
 		</View>
 	);
 }
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 	headerTitle: {
 		flex: 1,
 		fontSize: 20,
-		textAlign: 'center'
+		textAlign: 'center',
+		color: 'white'
 	}
 });
