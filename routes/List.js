@@ -10,7 +10,7 @@ export default function List(props) {
 
 	return (
 		<>
-		<Header></Header>
+		<Header/>
 		<FlatList
 			data={locations.rooms}
 			keyExtractor={(item) => String(item.title)}

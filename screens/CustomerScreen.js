@@ -8,7 +8,11 @@ function CustomerScreen() {
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Hello Customer</Text>
+			<Text style={styles.title}>Cette page sera reservé pour.</Text>
+			<Text style={styles.title}>Mes clients en mode :</Text>
+			<Text style={styles.title}>- Liste détaillé</Text>
+			<Text style={styles.title}>- Map avec card</Text>
+			<Text style={styles.title}>- Planning de la journée de mes tâches</Text>
 		</View>
 	);
 }

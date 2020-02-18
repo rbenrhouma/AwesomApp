@@ -6,7 +6,9 @@ import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/
 function PlusScreen() {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Hello Plus</Text>
+			<Text style={styles.title}>Que mettre dans cette page ?</Text>
+			<Text style={styles.title}>- Settings</Text>
+			<Text style={styles.title}>- ...</Text>
 		</View>
 	);
 }

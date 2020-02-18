@@ -6,7 +6,8 @@ import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/
 function FavorisScreen() {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Hello Favoris</Text>
+			<Text style={styles.title}>Mes Favoris</Text>
+			<Text style={styles.title}>Mes prospects</Text>
 		</View>
 	);
 }

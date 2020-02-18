@@ -3,8 +3,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import axios from 'axios';
 import { FontAwesome } from '@expo/vector-icons';
 
-import List from './List';
-import Map from './Map';
+import ScreenList from './List';
+import ScreenMap from './Map';
+import ScreenPlus from '../screens/PlusScreen';
+import ScreenCustomer from '../screens/CustomerScreen';
+import ScreenFavoris from '../screens/FavorisScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,14 +26,14 @@ export default function App() {
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused, color, size }) => {
 					let iconName;
-					if (route.name === 'Liste') {
+					if (route.name === 'Accueil') {
 						iconName = focused ? 'home' : 'home';
 					} else if (route.name === 'Carte') {
 						iconName = focused ? 'map-marker' : 'map-marker';
 					} else if (route.name === 'Favoris') {
 						iconName = focused ? 'heart' : 'heart';
 					} else if (route.name === 'Client') {
-						iconName = focused ? 'user' : 'users';
+						iconName = focused ? 'user' : 'user';
 					} else if (route.name === 'Plus') {
 						iconName = focused ? 'th-list' : 'th-list';
 					}
@@ -48,11 +51,11 @@ export default function App() {
 				}
 			}}
 		>
-			<Tab.Screen name="Liste">{() => <List locations={locations} />}</Tab.Screen>
-			<Tab.Screen name="Carte">{() => <Map locations={locations} />}</Tab.Screen>
-			<Tab.Screen name="Favoris">{() => <List locations={locations} />}</Tab.Screen>
-			<Tab.Screen name="Client">{() => <Map locations={locations} />}</Tab.Screen>
-			<Tab.Screen name="Plus">{() => <Map locations={locations} />}</Tab.Screen>
+			<Tab.Screen name="Accueil">{() => <ScreenList locations={locations} />}</Tab.Screen>
+			<Tab.Screen name="Carte">{() => <ScreenMap locations={locations} />}</Tab.Screen>
+			<Tab.Screen name="Favoris">{() => <ScreenFavoris />}</Tab.Screen>
+			<Tab.Screen name="Client">{() => <ScreenCustomer locations={locations} />}</Tab.Screen>
+			<Tab.Screen name="Plus">{() => <ScreenPlus />}</Tab.Screen>
 		</Tab.Navigator>
 	);
 }
