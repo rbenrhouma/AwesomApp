@@ -21,7 +21,7 @@ export default function App() {
 		<NavigationContainer>
 			<Stack.Navigator>
 				<Stack.Screen options={option} name="Splash" component={SplashScreen} />
-				<Stack.Screen options={option} name="List" component={TabNavigation} />
+				<Stack.Screen options={option} name="Principale" component={TabNavigation} />
 				<Stack.Screen options={option} name="Good" component={Good} />
 				<Stack.Screen options={option} name="Login" component={Login} />
 			</Stack.Navigator>

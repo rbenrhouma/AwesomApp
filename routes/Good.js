@@ -7,12 +7,13 @@ import {
   TouchableOpacity,
   ScrollView
 } from "react-native";
+
 import { useRoute } from "@react-navigation/core";
 import axios from "axios";
 import Swiper from "react-native-swiper";
 import MapView, { Marker } from "react-native-maps";
-
 import RateAndTitle from "../components/RateAndTitle";
+import ButtonBar from "../components/ButtonBar";
 
 export default function Good() {
   const [data, setData] = useState();
@@ -34,6 +35,9 @@ export default function Good() {
     const images = photos.map((photo, index) => {
       return (
         <View key={index} style={styles.slide}>
+          <View style={styles.buttonBar}>
+            <ButtonBar></ButtonBar>
+          </View>
           <Image source={{ uri: photo }} style={styles.slide} />
         </View>
       );
@@ -50,7 +54,7 @@ export default function Good() {
         {wrapPhotos(data.photos)}
       </Swiper>
       <View style={styles.infoWrapper}>
-        <RateAndTitle good={data} taille={'L'} />
+        <RateAndTitle good={data} taille={"L"} />
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => {
@@ -105,5 +109,6 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     marginVertical: 15
-  }
+  },
+  buttonBar: { position: "absolute", zIndex: 1, width: "100%" }
 });

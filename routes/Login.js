@@ -21,7 +21,7 @@ export default function Login() {
 	};
 
 	const login = () => {
-		navigation.replace('List');
+		navigation.replace('Principale');
 		return;
 		if (!mail || !password) return;
 		axios
@@ -34,7 +34,7 @@ export default function Login() {
 			})
 			.then((res) => {
 				AsyncStorage.setItem('account', JSON.stringify(res.data));
-				navigation.replace('List');
+				navigation.replace('Principale');
 			});
 	};
 

@@ -11,7 +11,8 @@ export default function ListItem(props) {
 		<TouchableOpacity
 			style={{
 				alignItems: 'center',
-				marginHorizontal: 15
+				marginHorizontal: 15,
+				marginLeft: 30
 			}}
 			onPress={() => {
 				navigation.navigate('Good', { id: good._id });
