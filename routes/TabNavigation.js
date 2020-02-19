@@ -8,6 +8,7 @@ import ScreenMap from "./Map";
 import ScreenPlus from "../screens/PlusScreen";
 import ScreenCustomer from "../screens/CustomerScreen";
 import ScreenFavoris from "../screens/FavorisScreen";
+import { GlobalConst } from "../appConstants/AppConstants";
 
 const Tab = createBottomTabNavigator();
 
@@ -43,10 +44,10 @@ export default function App() {
         }
       })}
       tabBarOptions={{
-        activeTintColor: "tomato",
-        inactiveTintColor: "gray",
+        activeTintColor: GlobalConst.AppColor,
+        inactiveTintColor: "#FFFFFF",
         style: {
-          backgroundColor: "#171F33",
+          backgroundColor: "#000000",
           height: 60,
           paddingTop: 10,
           paddingBottom: 5

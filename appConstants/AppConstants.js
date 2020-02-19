@@ -1,4 +1,7 @@
 export const GlobalConst = {
-	AppColor: 'rgb(0,70,254)'
-	//AppColor: 'red'
+  ApplicationName: "Awesom Application",
+  AppColor: "rgb(0,70,254)"
+  //AppColor: 'red'
+  //AppColor: "green"
+  //AppColor: "tomato"
 };

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { AsyncStorage, View, ActivityIndicator } from "react-native";
-import Constants from "expo-constants";
 import { GlobalConst } from "../appConstants/AppConstants";
 import { useNavigation } from "@react-navigation/core";
 
@@ -10,7 +9,7 @@ export default function SplashScreen() {
   const getAccount = async () => {
     const localAccount = await AsyncStorage.getItem("account");
     if (localAccount) {
-      setTimeout(() => navigation.replace("Principale"), 1000);
+      setTimeout(() => navigation.replace(GlobalConst.ApplicationName), 1000);
     } else {
       setTimeout(() => navigation.replace("Login"), 1000);
     }

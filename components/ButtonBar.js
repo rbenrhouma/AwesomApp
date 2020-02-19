@@ -1,25 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Alert, Text } from "react-native";
 import { IconButton, Colors } from "react-native-paper";
-import { Camera } from 'expo-camera';
-import * as Permissions from 'expo-permissions';
+import { useNavigation } from "@react-navigation/core";
 
 export default function ButtonBar() {
-  const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
-  useEffect(() => {
-    (async () => {
-      const { status } = await Camera.requestPermissionsAsync();
-      setHasPermission(status === "granted");
-    })();
-  }, []);
+  const navigation = useNavigation();
 
-  if (hasPermission === null) {
-    return <View />;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
+  const onClickTakePhoto = () => {
+    navigation.navigate("Camera");
+  };
+
   return (
     <View>
       <View style={styles.fixToText}>
@@ -27,14 +17,7 @@ export default function ButtonBar() {
           icon="camera"
           color={Colors.white}
           size={40}
-          onPress={() => {
-            Alert.alert("Button heart pressed");
-            setType(
-              type === Camera.Constants.Type.back
-                ? Camera.Constants.Type.front
-                : Camera.Constants.Type.back
-            );
-          }}
+          onPress={onClickTakePhoto}
         />
         <IconButton
           icon="heart"

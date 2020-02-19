@@ -50,10 +50,7 @@ export default function RateAndTitle(props) {
         </View>
         <TouchableOpacity
           style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            marginHorizontal: 15,
+            margin: 2,
             backgroundColor: GlobalConst.AppColor,
             borderRadius: 5,
             width: 200,
@@ -61,16 +58,40 @@ export default function RateAndTitle(props) {
           }}
           onPress={() => {
             console.warn("notification");
-            // 	navigation.navigate('Good', { id: good._id });
           }}
         >
           <Text
             style={{
+              textAlign: "center",
               color: "white",
               margin: 5
             }}
           >
             Notification
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            flex: 1,
+            margin: 2,
+            backgroundColor: GlobalConst.AppColor,
+            borderRadius: 5,
+            width: 80,
+            display: localSize !== "L" ? "none" : "flex"
+          }}
+          onPress={() => {
+            console.warn("Chat");
+          }}
+        >
+          <Text
+            style={{
+              textAlign: "center",
+              color: "white",
+              margin: 5
+            }}
+          >
+            Chat ...
           </Text>
         </TouchableOpacity>
       </View>
