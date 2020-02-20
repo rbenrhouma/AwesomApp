@@ -4,11 +4,13 @@ import ListItem from "./ListItem";
 import Header from "../components/Header";
 import { Searchbar } from "react-native-paper";
 import { FilterList } from "../Data/FiltersGroups";
+import { useNavigation } from "@react-navigation/core";
 
 export default function ListScreen(props) {
   const { locations } = props;
+  const navigation = useNavigation();
   const onFilterPress = () => {
-    console.warn("test");
+    navigation.navigate("Filter");
   };
 
   if (!locations) return null;
@@ -27,7 +29,7 @@ export default function ListScreen(props) {
         textInputDisable
         cancelButtonDisable
         iconColor="#EE578D"
-        placeholder="Rechercher un sérvice ici..."
+        placeholder="A proximité"
         onChangeText={text => {
           console.log(text);
         }}

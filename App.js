@@ -8,6 +8,7 @@ import TabNavigation from "./routes/TabNavigation";
 import Good from "./routes/Good";
 import { Theme } from "./appConstants/AppConstants";
 import ScreenCamera from "./screens/Camera";
+import FilterScreen from "./screens/FilterScreen";
 
 const Stack = createStackNavigator();
 
@@ -28,8 +29,9 @@ export default function App() {
           component={TabNavigation}
         />
         <Stack.Screen options={option} name="Good" component={Good} />
-        <Stack.Screen options={option} name="Login" component={Login} />
+        <Stack.Screen options={option} name="Connection" component={Login} />
         <Stack.Screen options={option} name="Camera" component={ScreenCamera} />
+        <Stack.Screen options={option} name="Filter" component={FilterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

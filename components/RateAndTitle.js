@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { Theme } from "../appConstants/AppConstants";
 import Stars from "./Stars";
+import { Entypo } from "@expo/vector-icons";
 
 export default function RateAndTitle(props) {
   const { good, taille } = props;
@@ -84,15 +85,45 @@ export default function RateAndTitle(props) {
             console.warn("Chat");
           }}
         >
-          <Text
+          <Entypo
             style={{
+              flex: 1,
               textAlign: "center",
               color: "white",
-              margin: 5
+              margin: 5,
+              display: localSize !== "L" ? "none" : "flex"
             }}
-          >
-            Chat ...
-          </Text>
+            name="chat"
+            size={20}
+            color="white"
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={{
+            flex: 1,
+            margin: 2,
+            backgroundColor: Theme.AppColor,
+            borderRadius: 5,
+            width: 80,
+            display: localSize !== "L" ? "none" : "flex"
+          }}
+          onPress={() => {
+            console.warn("Chat");
+          }}
+        >
+          <Entypo
+            style={{
+              flex: 1,
+              textAlign: "center",
+              color: "white",
+              margin: 5,
+              display: localSize !== "L" ? "none" : "flex"
+            }}
+            name="notification"
+            size={20}
+            color="white"
+          />
         </TouchableOpacity>
       </View>
     </View>

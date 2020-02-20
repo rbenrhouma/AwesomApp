@@ -11,7 +11,7 @@ export default function SplashScreen() {
     if (localAccount) {
       setTimeout(() => navigation.replace(Theme.ApplicationName), 1000);
     } else {
-      setTimeout(() => navigation.replace("Login"), 1000);
+      setTimeout(() => navigation.replace("Connection"), 1000);
     }
   };
 
