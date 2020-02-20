@@ -6,14 +6,14 @@ import SplashScreen from "./routes/SplashScreen";
 import Login from "./routes/Login";
 import TabNavigation from "./routes/TabNavigation";
 import Good from "./routes/Good";
-import { GlobalConst } from "./appConstants/AppConstants";
+import { Theme } from "./appConstants/AppConstants";
 import ScreenCamera from "./screens/Camera";
 
 const Stack = createStackNavigator();
 
 export default function App() {
   const option = {
-    headerStyle: { backgroundColor: GlobalConst.AppColor },
+    headerStyle: { backgroundColor: Theme.AppColor },
     leftLabelStyle: { color: "white" },
     headerTitleStyle: { color: "white" }
   };
@@ -24,7 +24,7 @@ export default function App() {
         <Stack.Screen options={option} name="Splash" component={SplashScreen} />
         <Stack.Screen
           options={option}
-          name={GlobalConst.ApplicationName}
+          name={Theme.ApplicationName}
           component={TabNavigation}
         />
         <Stack.Screen options={option} name="Good" component={Good} />

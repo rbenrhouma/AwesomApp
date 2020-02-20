@@ -1,29 +1,27 @@
 import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
-import { GlobalConst } from "../appConstants/AppConstants";
+import { Theme } from "../appConstants/AppConstants";
 import FiltreBar from "./FiltreBar";
 
 export default function Header(props) {
+  const { onFilterPress, filtersList } = props;
   return (
     <View style={styles.container}>
-      <FiltreBar></FiltreBar>
+      <FiltreBar
+        onFilterPress={onFilterPress}
+        filtersList={filtersList}
+      ></FiltreBar>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 80,
+    height: 60,
     flexDirection: "row",
-    backgroundColor: GlobalConst.AppColor,
-    padding: 5,
-    margin: 2,
+    backgroundColor: Theme.AppColor,
+    // padding: 5,
+    //    margin: 2,
     borderRadius: 10
-  },
-  headerTitle: {
-    flex: 1,
-    fontSize: 15,
-    textAlign: "center",
-    color: "white"
   }
 });

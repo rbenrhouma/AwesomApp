@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
-import { GlobalConst } from "../appConstants/AppConstants";
+import { Theme } from "../appConstants/AppConstants";
 import Stars from "./Stars";
 
 export default function RateAndTitle(props) {
@@ -20,7 +20,7 @@ export default function RateAndTitle(props) {
       width: localSize === "XL" ? 100 : localSize === "L" ? 80 : 50,
       borderWidth: localSize === "XL" ? 2 : localSize === "L" ? 1 : 0,
       margin: localSize === "XL" ? 0 : localSize === "L" ? 10 : 0,
-      borderColor: GlobalConst.AppColor
+      borderColor: Theme.AppColor
     },
     titleWrapper: {
       flex: 3,
@@ -51,7 +51,7 @@ export default function RateAndTitle(props) {
         <TouchableOpacity
           style={{
             margin: 2,
-            backgroundColor: GlobalConst.AppColor,
+            backgroundColor: Theme.AppColor,
             borderRadius: 5,
             width: 200,
             display: localSize !== "L" ? "none" : "flex"
@@ -75,7 +75,7 @@ export default function RateAndTitle(props) {
           style={{
             flex: 1,
             margin: 2,
-            backgroundColor: GlobalConst.AppColor,
+            backgroundColor: Theme.AppColor,
             borderRadius: 5,
             width: 80,
             display: localSize !== "L" ? "none" : "flex"

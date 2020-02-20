@@ -8,7 +8,7 @@ import ScreenMap from "./Map";
 import ScreenPlus from "../screens/PlusScreen";
 import ScreenCustomer from "../screens/CustomerScreen";
 import ScreenFavoris from "../screens/FavorisScreen";
-import { GlobalConst } from "../appConstants/AppConstants";
+import { Theme } from "../appConstants/AppConstants";
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +44,7 @@ export default function App() {
         }
       })}
       tabBarOptions={{
-        activeTintColor: GlobalConst.AppColor,
+        activeTintColor: Theme.AppColor,
         inactiveTintColor: "#FFFFFF",
         style: {
           backgroundColor: "#000000",

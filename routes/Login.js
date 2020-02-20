@@ -12,7 +12,7 @@ import { AsyncStorage } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import Constants from "expo-constants";
 import axios from "axios";
-import { GlobalConst } from "../appConstants/AppConstants";
+import { Theme } from "../appConstants/AppConstants";
 
 export default function Login() {
   const [mail, setMail] = useState();
@@ -28,7 +28,7 @@ export default function Login() {
   };
 
   const login = () => {
-    navigation.replace(GlobalConst.ApplicationName);
+    navigation.replace(Theme.ApplicationName);
     return;
     if (!mail || !password) return;
     axios
@@ -41,7 +41,7 @@ export default function Login() {
       })
       .then(res => {
         AsyncStorage.setItem("account", JSON.stringify(res.data));
-        navigation.replace(GlobalConst.ApplicationName);
+        navigation.replace(Theme.ApplicationName);
       });
   };
 
@@ -77,7 +77,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: GlobalConst.AppColor,
+    backgroundColor: Theme.AppColor,
     paddingTop: Constants.statusBarHeight
   },
   welcome: {
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     flex: 2,
     width: "100%",
     alignItems: "center",
-    backgroundColor: GlobalConst.AppColor
+    backgroundColor: Theme.AppColor
   },
   input: {
     color: "white",
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     marginTop: 50
   },
   buttonTitle: {
-    color: GlobalConst.AppColor,
+    color: Theme.AppColor,
     fontSize: 34
   }
 });

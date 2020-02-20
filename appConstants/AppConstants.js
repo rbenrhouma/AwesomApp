@@ -1,4 +1,4 @@
-export const GlobalConst = {
+export const Theme = {
   ApplicationName: "Awesom Application",
   AppColor: "rgb(0,70,254)"
   //AppColor: 'red'
