@@ -1,9 +1,10 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Entypo } from "@expo/vector-icons";
+import { Theme } from "../appConstants/AppConstants";
 
 export default function Stars(props) {
-  const { rate, taille, filtre } = props;
+  const { rate, taille, filtre, canSelect, selected } = props;
   if (!rate) return null;
 
   const displayStars = rate => {
@@ -32,6 +33,16 @@ export default function Stars(props) {
     return stars;
   };
 
+  const styles = StyleSheet.create({
+    starWrapper: {
+      flexDirection: "row",
+      alignItems: "center",
+      borderColor: Theme.AppColor,
+      borderWidth: canSelect && selected ? 2 : 0,
+      borderRadius: 5
+    }
+  });
+
   return (
     <View style={styles.starWrapper}>
       {displayStars(rate)}
@@ -39,10 +50,3 @@ export default function Stars(props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  starWrapper: {
-    flexDirection: "row",
-    alignItems: "center"
-  }
-});

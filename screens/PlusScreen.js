@@ -8,6 +8,7 @@ function PlusScreen() {
 		<View style={styles.container}>
 			<Text style={styles.title}>Que mettre dans cette page ?</Text>
 			<Text style={styles.title}>- Settings</Text>
+			<Text style={styles.title}>- Contrats juridiques</Text>
 			<Text style={styles.title}>- ...</Text>
 		</View>
 	);

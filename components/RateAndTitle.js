@@ -18,7 +18,7 @@ export default function RateAndTitle(props) {
       fontSize: localSize === "XL" ? 20 : localSize === "L" ? 15 : 10
     },
     avatar: {
-      borderRadius: localSize === "XL" ? 30 : localSize === "L" ? 25 : 10,
+      borderRadius: localSize === "XL" ? 20 : localSize === "L" ? 15 : 10,
       height: localSize === "XL" ? 100 : localSize === "L" ? 80 : 50,
       width: localSize === "XL" ? 100 : localSize === "L" ? 80 : 50,
       borderWidth: localSize === "XL" ? 2 : localSize === "L" ? 1 : 0,

@@ -14,7 +14,7 @@ import { GlobalFilter } from "../Data/FiltersGroups";
 export default FilterScreen => {
   const [pathLength, setPathLength] = useState(0);
   const [prestationValue, setPrestationValue] = useState([]);
-  const starsList = [1, 2, 3, 4, 5];
+  const starsList = [false, false, false, true, false];
 
   return (
     <View>
@@ -54,12 +54,14 @@ export default FilterScreen => {
         })}
       {starsList.map((elem, index) => {
         return (
-          <TouchableOpacity style={styles.stars}>
+          <TouchableOpacity style={styles.stars} onPress={() => {}}>
             <Stars
               style={styles.stars}
               rate={index + 1}
               taille={25}
               filtre={true}
+              canSelect={true}
+              selected={elem}
             ></Stars>
           </TouchableOpacity>
         );

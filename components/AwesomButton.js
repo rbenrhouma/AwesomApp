@@ -21,7 +21,10 @@ export default AwesomButton = props => {
         </View>
       )}
       <GradientButton
-        style={{}}
+        gradientBegin={Theme.AppColor}
+        gradientEnd="#000000"
+        gradientDirection="diagonal"
+        style={styles.btnStyle}
         textStyle={{ fontSize: 12 }}
         height={50}
         width={"22%"}
@@ -51,5 +54,6 @@ const styles = StyleSheet.create({
   },
   checkedText: {
     color: "white"
-  }
+  },
+  btnStyle: { color: "red" }
 });

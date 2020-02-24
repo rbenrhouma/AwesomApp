@@ -10,6 +10,17 @@ import ScreenCamera from "./screens/CameraScreen";
 import FilterScreen from "./screens/FilterScreen";
 import ChatScreen from "./screens/ChatScreen";
 
+const navigationConfig = {
+  initialRouteName: "Places",
+  headerMode: "float",
+  navigationOptions: {
+    title: "App Name",
+    header: ({ state, setParams }) => ({
+      style: { backgroundColor: "green" }
+    })
+  }
+};
+
 const Stack = createStackNavigator();
 
 export default function App() {

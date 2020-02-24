@@ -5,7 +5,6 @@ import { useNavigation } from "@react-navigation/core";
 
 export default function FiltreBar(props) {
   const { filtersList } = props;
-  const [filtersActifs, setFiltersActifs] = useState(0);
   const [counter, setCounter] = useState(0);
 
   const navigation = useNavigation();
