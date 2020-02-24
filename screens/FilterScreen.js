@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Stars from "../components/Stars";
 import FilterSubmit from "../components/FilterSubmit";
-import { FilterList } from "../Data/FiltersGroups";
+import { GlobalFilter } from "../Data/FiltersGroups";
 
 export default FilterScreen => {
   const [pathLength, setPathLength] = useState(0);
@@ -34,8 +34,8 @@ export default FilterScreen => {
           <Text style={styles.sliderText}>{pathLength} KM</Text>
         </View>
       </View>
-      {FilterList &&
-        FilterList.map((elem, index) => {
+      {GlobalFilter.ServicesFilters &&
+        GlobalFilter.ServicesFilters.map((elem, index) => {
           return (
             <View>
               {!elem.isAll ? (

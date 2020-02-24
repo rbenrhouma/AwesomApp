@@ -6,7 +6,7 @@ import Login from "./routes/Login";
 import TabNavigation from "./routes/TabNavigation";
 import Good from "./routes/Good";
 import { Theme } from "./appConstants/AppConstants";
-import ScreenCamera from "./screens/Camera";
+import ScreenCamera from "./screens/CameraScreen";
 import FilterScreen from "./screens/FilterScreen";
 import ChatScreen from "./screens/ChatScreen";
 

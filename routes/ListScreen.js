@@ -3,7 +3,7 @@ import { StyleSheet, FlatList, View } from "react-native";
 import ListItem from "./ListItem";
 import Header from "../components/Header";
 import { Searchbar } from "react-native-paper";
-import { FilterList } from "../Data/FiltersGroups";
+import { GlobalFilter } from "../Data/FiltersGroups";
 import { useNavigation } from "@react-navigation/core";
 import { Theme } from "../appConstants/AppConstants";
 
@@ -15,7 +15,7 @@ export default function ListScreen(props) {
 
   return (
     <>
-      <Header filtersList={FilterList} />
+      <Header filtersList={GlobalFilter.ServicesFilters} />
       <Searchbar
         //onPressToFocus
         autoFocus={false}
