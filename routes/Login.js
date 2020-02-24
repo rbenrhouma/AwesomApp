@@ -49,7 +49,7 @@ export default function Login() {
     <View style={styles.container}>
       <View style={{ flex: 1, alignItems: "center" }}>
         <Entypo name="tools" size={100} color="white" />
-        <Text style={styles.welcome}>Click&Start</Text>
+        <Text style={styles.welcome}>{Theme.ApplicationName}</Text>
       </View>
       <KeyboardAvoidingView behavior="padding" style={styles.keyboardWrapper}>
         <TextInput

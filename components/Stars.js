@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
 export default function Stars(props) {
-  const { rate, taille } = props;
+  const { rate, taille, filtre } = props;
   if (!rate) return null;
 
   const displayStars = rate => {
@@ -35,7 +35,7 @@ export default function Stars(props) {
   return (
     <View style={styles.starWrapper}>
       {displayStars(rate)}
-      <Text>{rate} reviews</Text>
+      <Text>{filtre ? " et plus" : rate + " reviews"}</Text>
     </View>
   );
 }

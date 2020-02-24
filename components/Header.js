@@ -4,13 +4,10 @@ import { Theme } from "../appConstants/AppConstants";
 import FiltreBar from "./FiltreBar";
 
 export default function Header(props) {
-  const { onFilterPress, filtersList } = props;
+  const { filtersList } = props;
   return (
     <View style={styles.container}>
-      <FiltreBar
-        onFilterPress={onFilterPress}
-        filtersList={filtersList}
-      ></FiltreBar>
+      <FiltreBar filtersList={filtersList}></FiltreBar>
     </View>
   );
 }

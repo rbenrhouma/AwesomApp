@@ -8,7 +8,7 @@ import {
   Switch
 } from "react-native";
 import Stars from "../components/Stars";
-import FilterSubmit from "../components/FilterButton";
+import FilterSubmit from "../components/FilterSubmit";
 import { FilterList } from "../Data/FiltersGroups";
 
 export default FilterScreen => {
@@ -18,32 +18,49 @@ export default FilterScreen => {
 
   return (
     <View>
-      <View />
-      <Text style={styles.text}>Distance : {pathLength} Km</Text>
-      <Slider
-        style={styles.slider}
-        step={1}
-        maximumValue={100}
-        value={pathLength}
-        onValueChange={sliderValue => setPathLength(sliderValue)}
-      />
+      <View>
+        <Text style={styles.text}>Rayon personnalisé </Text>
+        <Text style={styles.subText}>
+          Me montrer seulement les annonces dans un rayon donnée{" "}
+        </Text>
+        <View style={styles.sliderZone}>
+          <Slider
+            style={styles.slider}
+            step={1}
+            maximumValue={100}
+            value={pathLength}
+            onValueChange={sliderValue => setPathLength(sliderValue)}
+          />
+          <Text style={styles.sliderText}>{pathLength} KM</Text>
+        </View>
+      </View>
       {FilterList &&
         FilterList.map((elem, index) => {
           return (
-            <View style={styles.presta}>
-              <Switch
-                onValueChange={() => {}}
-                style={styles.prestaSwitch}
-                value={elem.selected}
-              />
-              <Text style={styles.prestaText}>{elem.caption}</Text>
+            <View>
+              {!elem.isAll ? (
+                <View style={styles.presta}>
+                  <Switch
+                    onValueChange={() => {}}
+                    style={styles.prestaSwitch}
+                    value={elem.selected}
+                  />
+
+                  <Text style={styles.prestaText}>{elem.caption}</Text>
+                </View>
+              ) : null}
             </View>
           );
         })}
       {starsList.map((elem, index) => {
         return (
           <TouchableOpacity style={styles.stars}>
-            <Stars style={styles.stars} rate={index + 1} taille={25}></Stars>
+            <Stars
+              style={styles.stars}
+              rate={index + 1}
+              taille={25}
+              filtre={true}
+            ></Stars>
           </TouchableOpacity>
         );
       })}
@@ -54,15 +71,16 @@ export default FilterScreen => {
 };
 
 const styles = StyleSheet.create({
-  slider: {
-    width: "80%",
-    marginHorizontal: "10%",
-    marginVertical: "2%"
-  },
   text: {
     width: "80%",
     marginHorizontal: "10%",
     marginTop: "10%"
+  },
+  subText: {
+    width: "80%",
+    marginLeft: "10%",
+    fontSize: 12,
+    color: "silver"
   },
   stars: {
     marginHorizontal: "10%",
@@ -77,6 +95,20 @@ const styles = StyleSheet.create({
   },
   prestaText: {
     paddingLeft: 20,
+    fontSize: 20
+  },
+  slider: {
+    width: "75%"
+  },
+  sliderZone: {
+    padding: 10
+    //marginHorizontal: 20,
+    //marginHorizontal: 20,
+  },
+  sliderText: {
+    top: 20,
+    position: "absolute",
+    right: 20,
     fontSize: 20
   }
 });

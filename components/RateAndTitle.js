@@ -3,11 +3,13 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { Theme } from "../appConstants/AppConstants";
 import Stars from "./Stars";
 import { Entypo } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/core";
+import EntypoButton from "./EntypoButton";
 
 export default function RateAndTitle(props) {
   const { good, taille } = props;
-  localSize = taille;
-
+  let localSize = taille;
+  const navigation = useNavigation();
   if (!good) return null;
   if (!localSize) localSize = 20;
 
@@ -49,82 +51,33 @@ export default function RateAndTitle(props) {
         <View style={styles.starWrapper}>
           <Stars rate={good.ratingValue} />
         </View>
-        <TouchableOpacity
-          style={{
-            margin: 2,
-            backgroundColor: Theme.AppColor,
-            borderRadius: 5,
-            width: 200,
-            display: localSize !== "L" ? "none" : "flex"
-          }}
-          onPress={() => {
-            console.warn("notification");
-          }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              color: "white",
-              margin: 5
-            }}
-          >
-            Notification
-          </Text>
-        </TouchableOpacity>
+        <Text style={styles.distance}>{good.ratingValue - 3} km</Text>
 
-        <TouchableOpacity
-          style={{
-            flex: 1,
-            margin: 2,
-            backgroundColor: Theme.AppColor,
-            borderRadius: 5,
-            width: 80,
-            display: localSize !== "L" ? "none" : "flex"
-          }}
-          onPress={() => {
-            console.warn("Chat");
-          }}
-        >
-          <Entypo
-            style={{
-              flex: 1,
-              textAlign: "center",
-              color: "white",
-              margin: 5,
-              display: localSize !== "L" ? "none" : "flex"
+        {localSize === "L" ? (
+          <EntypoButton
+            name={"notification"}
+            text={"Envoyer une notification"}
+            onPress={() => {
+              navigation.navigate("Chat", {
+                userID: 86,
+                Form: "Notification"
+              });
             }}
-            name="chat"
-            size={20}
-            color="white"
-          />
-        </TouchableOpacity>
+          ></EntypoButton>
+        ) : null}
 
-        <TouchableOpacity
-          style={{
-            flex: 1,
-            margin: 2,
-            backgroundColor: Theme.AppColor,
-            borderRadius: 5,
-            width: 80,
-            display: localSize !== "L" ? "none" : "flex"
-          }}
-          onPress={() => {
-            console.warn("Chat");
-          }}
-        >
-          <Entypo
-            style={{
-              flex: 1,
-              textAlign: "center",
-              color: "white",
-              margin: 5,
-              display: localSize !== "L" ? "none" : "flex"
+        {localSize === "L" ? (
+          <EntypoButton
+            name={"chat"}
+            text={"Envoyer un message"}
+            onPress={() => {
+              navigation.navigate("Chat", {
+                userID: 86,
+                Form: "Chat"
+              });
             }}
-            name="notification"
-            size={20}
-            color="white"
-          />
-        </TouchableOpacity>
+          ></EntypoButton>
+        ) : null}
       </View>
     </View>
   );
@@ -136,14 +89,18 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row"
   },
-
   starWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 3
+    paddingVertical: 3
   },
   avatarWrapper: {
     flex: 1,
     alignItems: "flex-end"
+  },
+  distance: {
+    paddingRight: 10,
+    color: "silver",
+    textAlign: "right"
   }
 });

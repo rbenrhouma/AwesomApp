@@ -1,30 +1,34 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import GradientButton from "react-native-gradient-buttons";
+import { Theme } from "../appConstants/AppConstants";
 
 export default AwesomButton = props => {
-  const { code, caption, onFilterPress } = props;
-  const [selected, setSelected] = useState(false);
+  const { code, caption, onFilterPress, counter, selected, isAll } = props;
 
-  const onLocalFilterPress = () => {
-    setSelected(!selected);
-  };
+  let myCounter = 0;
+  if (isAll) {
+    myCounter = counter;
+  } else {
+    myCounter = selected ? 1 : 0;
+  }
 
   return (
     <>
-      {selected && <View style={styles.checkedBtn}></View>}
+      {myCounter > 0 && (
+        <View style={styles.checkedZone}>
+          <Text style={styles.checkedText}> {myCounter}</Text>
+        </View>
+      )}
       <GradientButton
         style={{}}
-        textStyle={{ fontSize: 14 }}
-        //gradientDirection="diagonal"
+        textStyle={{ fontSize: 12 }}
         height={50}
         width={"22%"}
         radius={12}
         impact
         impactStyle="Light"
-        onPressAction={
-          code === "FILTER-GLOBAL" ? onFilterPress : onLocalFilterPress
-        }
+        onPressAction={onFilterPress}
       >
         {caption}
       </GradientButton>
@@ -33,16 +37,19 @@ export default AwesomButton = props => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
-  checkedBtn: {
-    width: 12,
-    height: 12,
-    left: 14,
-    top: -19,
+  checkedZone: {
+    width: 18,
+    height: 18,
+    left: 10,
+    top: -20,
     position: "relative",
     zIndex: 10,
-    borderColor: "rgb(255,0,255)",
-    borderWidth: 6,
-    borderTopLeftRadius: 6
+    borderColor: "white",
+    borderWidth: 1,
+    borderRadius: 9,
+    backgroundColor: Theme.AppColor
+  },
+  checkedText: {
+    color: "white"
   }
 });

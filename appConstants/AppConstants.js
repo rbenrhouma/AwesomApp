@@ -1,5 +1,5 @@
 export const Theme = {
-  ApplicationName: "Awesom Application",
+  ApplicationName: "Click&Start",
   AppColor: "rgb(0,70,254)"
   //AppColor: 'red'
   //AppColor: "green"

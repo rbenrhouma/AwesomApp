@@ -17,6 +17,7 @@ export const FilterList = [
   {
     code: "FILTER-GLOBAL",
     caption: "Filtrer",
-    selected: false
+    selected: false,
+    isAll: true
   }
 ];

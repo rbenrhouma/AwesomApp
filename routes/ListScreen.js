@@ -5,19 +5,17 @@ import Header from "../components/Header";
 import { Searchbar } from "react-native-paper";
 import { FilterList } from "../Data/FiltersGroups";
 import { useNavigation } from "@react-navigation/core";
+import { Theme } from "../appConstants/AppConstants";
 
 export default function ListScreen(props) {
   const { locations } = props;
   const navigation = useNavigation();
-  const onFilterPress = () => {
-    navigation.navigate("Filter");
-  };
 
   if (!locations) return null;
 
   return (
     <>
-      <Header onFilterPress={onFilterPress} filtersList={FilterList} />
+      <Header filtersList={FilterList} />
       <Searchbar
         //onPressToFocus
         autoFocus={false}
@@ -44,15 +42,7 @@ export default function ListScreen(props) {
           keyExtractor={item => String(item.title)}
           style={styles.container}
           ItemSeparatorComponent={({ highlighted }) => (
-            <View
-              style={{
-                height: 1,
-                backgroundColor: "lightgrey",
-                marginBottom: 10,
-                marginTop: 10,
-                marginHorizontal: 25
-              }}
-            />
+            <View style={styles.separator} />
           )}
           contentContainerStyle={{
             justifyContent: "center"
@@ -69,5 +59,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
     marginTop: 5
+  },
+  separator: {
+    height: 0.5,
+    backgroundColor: Theme.AppColor,
+    marginVertical: 10,
+    marginHorizontal: 20
   }
 });

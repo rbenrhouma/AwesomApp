@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import AwesomButton from "./AwesomButton";
+import { useNavigation } from "@react-navigation/core";
 
 export default function FiltreBar(props) {
-  const { onFilterPress, filtersList } = props;
+  const { filtersList } = props;
   const [filtersActifs, setFiltersActifs] = useState(0);
+  const [counter, setCounter] = useState(0);
+
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -14,8 +18,19 @@ export default function FiltreBar(props) {
             <AwesomButton
               style={styles.awesomButton}
               code={btn.code}
-              onFilterPress={onFilterPress}
+              onFilterPress={() => {
+                if (btn.isAll) {
+                  navigation.navigate("Filter");
+                } else {
+                  if (btn.selected) setCounter(counter - 1);
+                  else setCounter(counter + 1);
+                }
+                btn.selected = !btn.selected;
+              }}
               caption={btn.caption}
+              counter={counter}
+              isAll={btn.isAll}
+              selected={btn.selected}
             ></AwesomButton>
           );
         })}
@@ -35,9 +50,5 @@ const styles = StyleSheet.create({
     // borderColor: "red",
     // borderWidth: 5,
     // borderRadius: 10
-  },
-  checkedBtn: {
-    position: "absolute",
-    margin: 10
   }
 });

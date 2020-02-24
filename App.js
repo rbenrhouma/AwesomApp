@@ -1,7 +1,6 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-
 import SplashScreen from "./routes/SplashScreen";
 import Login from "./routes/Login";
 import TabNavigation from "./routes/TabNavigation";
@@ -9,6 +8,7 @@ import Good from "./routes/Good";
 import { Theme } from "./appConstants/AppConstants";
 import ScreenCamera from "./screens/Camera";
 import FilterScreen from "./screens/FilterScreen";
+import ChatScreen from "./screens/ChatScreen";
 
 const Stack = createStackNavigator();
 
@@ -32,6 +32,7 @@ export default function App() {
         <Stack.Screen options={option} name="Connection" component={Login} />
         <Stack.Screen options={option} name="Camera" component={ScreenCamera} />
         <Stack.Screen options={option} name="Filter" component={FilterScreen} />
+        <Stack.Screen options={option} name="Chat" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

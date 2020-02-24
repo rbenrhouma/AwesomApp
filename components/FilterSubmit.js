@@ -20,8 +20,6 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 10,
     margin: 20,
-    // borderColor: "red",
-    // borderWidth: 5,
     backgroundColor: Theme.AppColor
   },
   buttonText: {
