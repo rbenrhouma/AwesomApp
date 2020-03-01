@@ -1,27 +1,44 @@
-import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { StyleSheet } from 'react-native';
-import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
-
-function FavorisScreen() {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>Mes Favoris</Text>
-			<Text style={styles.title}>Mes prospects</Text>
-		</View>
-	);
+import React, { Component } from "react";
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Right,
+  Button,
+  Icon,
+  Title,
+  Content,
+  SwipeRow,
+  View,
+  Text
+} from "native-base";
+export default class FavorisScreen extends Component {
+  render() {
+    return (
+      <Container>
+        <Header style={{ height: 30, padding: 25 }}>
+          <Left>
+            <Button transparent>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Titre page</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+              <Icon name="search" />
+            </Button>
+            <Button transparent>
+              <Icon name="heart" />
+            </Button>
+            <Button transparent>
+              <Icon name="more" />
+            </Button>
+          </Right>
+        </Header>
+      </Container>
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-	container: {
-		backgroundColor: 'white',
-		flex: 1,
-		paddingTop: 100,
-		alignItems: 'center'
-	},
-	title: {
-		fontSize: 24
-	}
-});
-
-export default FavorisScreen;

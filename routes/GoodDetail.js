@@ -15,7 +15,7 @@ import MapView, { Marker } from "react-native-maps";
 import RateAndTitle from "../components/RateAndTitle";
 import ButtonBar from "../components/ButtonBar";
 
-export default function Good() {
+export default function GoodDetail() {
   const [data, setData] = useState();
   const [fullText, setFullText] = useState(false);
   const route = useRoute();

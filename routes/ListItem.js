@@ -15,7 +15,7 @@ export default function ListItem(props) {
 				marginLeft: 30
 			}}
 			onPress={() => {
-				navigation.navigate('Good', { id: good._id });
+				navigation.navigate('GoodDetail', { id: good._id });
 			}}
 		>
 			<RateAndTitle good={good} taille={'XL'} />

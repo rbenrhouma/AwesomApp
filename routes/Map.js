@@ -6,6 +6,7 @@ import RateAndTitle from "../components/RateAndTitle";
 import { Theme } from "../appConstants/AppConstants";
 import MapButtonsBar from "../components/MapButtonsBar";
 import { IconButton, Colors } from "react-native-paper";
+//import pin from "../assets/pin";
 
 export default function Map(props) {
   let map: any;
@@ -68,13 +69,16 @@ export default function Map(props) {
             return (
               <Marker
                 key={good._id}
+                image={require("../assets/pin.png")}
                 coordinate={{
                   latitude: good.loc[1],
                   longitude: good.loc[0]
                 }}
               >
                 <Callout
-                  onPress={() => navigation.navigate("Good", { id: good._id })}
+                  onPress={() =>
+                    navigation.navigate("GoodDetail", { id: good._id })
+                  }
                   style={{ padding: 10 }}
                 >
                   <RateAndTitle good={good} taille={"S"} />

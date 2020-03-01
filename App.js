@@ -4,26 +4,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 import SplashScreen from "./routes/SplashScreen";
 import Login from "./routes/Login";
 import TabNavigation from "./routes/TabNavigation";
-import Good from "./routes/Good";
+import GoodDetail from "./routes/GoodDetail";
 import { Theme } from "./appConstants/AppConstants";
 import ScreenCamera from "./screens/CameraScreen";
 import FilterScreen from "./screens/FilterScreen";
 import ChatScreen from "./screens/ChatScreen";
 
-const navigationConfig = {
-  initialRouteName: "Places",
-  headerMode: "float",
-  navigationOptions: {
-    title: "App Name",
-    header: ({ state, setParams }) => ({
-      style: { backgroundColor: "green" }
-    })
-  }
-};
-
 const Stack = createStackNavigator();
 
-export default function App() {
+const App = () => {
   const option = {
     headerStyle: { backgroundColor: Theme.AppColor },
     leftLabelStyle: { color: "white" },
@@ -39,7 +28,11 @@ export default function App() {
           name={Theme.ApplicationName}
           component={TabNavigation}
         />
-        <Stack.Screen options={option} name="Good" component={Good} />
+        <Stack.Screen
+          options={option}
+          name="GoodDetail"
+          component={GoodDetail}
+        />
         <Stack.Screen options={option} name="Connection" component={Login} />
         <Stack.Screen options={option} name="Camera" component={ScreenCamera} />
         <Stack.Screen options={option} name="Filter" component={FilterScreen} />
@@ -47,4 +40,26 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+App.navigationOptions = {
+  title: "custom application",
+  headerStyle: {
+    backgroundColor: "green",
+    hight: 100
+  },
+  headerTitleStyle: {
+    fontWeight: "bold",
+    color: "blue",
+    hight: 100
+  },
+  headerRight: () => (
+    <Button
+      title="count"
+      onPress={() => {
+        alert("hello");
+      }}
+    />
+  )
+};
+export default App;

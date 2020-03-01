@@ -19,8 +19,8 @@ export default function RateAndTitle(props) {
     },
     avatar: {
       borderRadius: localSize === "XL" ? 20 : localSize === "L" ? 15 : 10,
-      height: localSize === "XL" ? 100 : localSize === "L" ? 80 : 50,
-      width: localSize === "XL" ? 100 : localSize === "L" ? 80 : 50,
+      height: localSize === "XL" ? 100 : localSize === "L" ? 80 : 80,
+      width: localSize === "XL" ? 100 : localSize === "L" ? 80 : 80,
       borderWidth: localSize === "XL" ? 2 : localSize === "L" ? 1 : 0,
       margin: localSize === "XL" ? 0 : localSize === "L" ? 10 : 0,
       borderColor: Theme.AppColor
@@ -28,7 +28,7 @@ export default function RateAndTitle(props) {
     titleWrapper: {
       flex: 3,
       flexDirection: "column",
-      padding: localSize === "XL" ? 10 : localSize === "L" ? 10 : 5
+      padding: localSize === "XL" ? 10 : localSize === "L" ? 5 : 0
     }
   });
 
@@ -91,8 +91,7 @@ const styles = StyleSheet.create({
   },
   starWrapper: {
     flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 3
+    alignItems: "center"
   },
   avatarWrapper: {
     flex: 1,

@@ -9,37 +9,28 @@ import {
   Button,
   Dimensions
 } from "react-native";
-import { Toast } from "native-base";
 import Stars from "../components/Stars";
-import FilterSubmit from "../components/FilterSubmit";
+import FilterSubmit from "./FilterSubmit";
 import { GlobalFilter } from "../Data/FiltersGroups";
 import { TabView, SceneMap } from "react-native-tab-view";
 
-// const GoodsRoute = () => (
-//   <View style={[styles.scene, { backgroundColor: "#ff4081" }]} />
-// );
-
-// const ServicesRoute = () => (
-//   <View style={[styles.scene, { backgroundColor: "#673ab7" }]} />
-// );
-
 //const initialLayout = { width: Dimensions.get("window").width };
 
-export default FilterScreen => {
+export default FilterService => {
   const [pathLength, setPathLength] = useState(100);
   const [prestationValue, setPrestationValue] = useState([]);
   const starsList = [false, false, false, true, false];
 
-  // const [index, setIndex] = React.useState(0);
-  // const [routes] = React.useState([
-  //   { key: "servicesRoute", title: "Services" },
-  //   { key: "goodsRoute", title: "Biens" }
-  // ]);
+  //   const [index, setIndex] = React.useState(0);
+  //   const [routes] = React.useState([
+  //     { key: "servicesRoute", title: "Services" },
+  //     { key: "goodsRoute", title: "Biens" }
+  //   ]);
 
-  // const renderScene = SceneMap({
-  //   servicesRoute: ServicesRoute,
-  //   goodsRoute: GoodsRoute
-  // });
+  //   const renderScene = SceneMap({
+  //     servicesRoute: ServicesRoute,
+  //     goodsRoute: GoodsRoute
+  //   });
 
   const filterApply = () => {
     console.warn("filtre appliqué");
@@ -47,8 +38,8 @@ export default FilterScreen => {
   return (
     <View style={styles.container}>
       <View style={styles.tab}>
-        {/* <Button style={styles.btnTab} title="Services"></Button>
-        <Button style={styles.btnTab} title="Biens"></Button> */}
+        <Button style={styles.btnTab} title="Services"></Button>
+        <Button style={styles.btnTab} title="Biens"></Button>
       </View>
 
       <View style={styles.services}>
@@ -104,36 +95,18 @@ export default FilterScreen => {
         text={"Appliquer Fitre"}
         onPress={filterApply}
       ></FilterSubmit>
-      {/* <Button
-        title="Appliquer"
-        onPress={() => {
-          console.log(Toast.show());
-          Toast.show();
-          Toast.show({
-            text: "Wrong password!",
-            buttonText: "Okay",
-            duration: 3000
-          });
-        }}
-      ></Button> */}
     </View>
-
-    // <TabView
-    //   navigationState={{ index, routes }}
-    //   renderScene={renderScene}
-    //   onIndexChange={setIndex}
-    //   initialLayout={initialLayout}
-    // />
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     borderColor: "red",
     borderWidth: 1,
     borderStyle: "dotted"
   },
-  tab: { height: "10%" },
+  tab: {},
   btnTab: {
     width: "70",
     backgroundColor: "green"

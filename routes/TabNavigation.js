@@ -37,7 +37,7 @@ export default function App() {
             iconName = focused ? "heart" : "heart";
           } else if (route.name === "Client") {
             iconName = focused ? "user" : "user";
-          } else if (route.name === "Plus") {
+          } else if (route.name === "Settings") {
             iconName = focused ? "th-list" : "th-list";
           }
           return <FontAwesome name={iconName} size={30} color={color} />;
@@ -46,6 +46,7 @@ export default function App() {
       tabBarOptions={{
         activeTintColor: Theme.AppColor,
         inactiveTintColor: "#FFFFFF",
+        //headerTintolor:"red",
         style: {
           backgroundColor: "#000000",
           height: 60,
@@ -64,7 +65,7 @@ export default function App() {
       <Tab.Screen name="Client">
         {() => <ScreenCustomer locations={locations} />}
       </Tab.Screen>
-      <Tab.Screen name="Plus">{() => <ScreenPlus />}</Tab.Screen>
+      <Tab.Screen name="Settings">{() => <ScreenPlus />}</Tab.Screen>
     </Tab.Navigator>
   );
 }

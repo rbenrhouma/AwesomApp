@@ -1,29 +1,85 @@
-import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { StyleSheet } from 'react-native';
-import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
+import React, { Component } from "react";
+import { Theme } from "../appConstants/AppConstants";
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Right,
+  Button,
+  Icon,
+  Segment,
+  Content,
+  Text,
+  Title,
+  Spinner,
+  Dimensions
+} from "native-base";
 
-function PlusScreen() {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>Que mettre dans cette page ?</Text>
-			<Text style={styles.title}>- Settings</Text>
-			<Text style={styles.title}>- Contrats juridiques</Text>
-			<Text style={styles.title}>- ...</Text>
-		</View>
-	);
-}
+import { TabView, SceneMap } from "react-native-tab-view";
 
-const styles = StyleSheet.create({
-	container: {
-		backgroundColor: 'white',
-		flex: 1,
-		paddingTop: 100,
-		alignItems: 'center'
-	},
-	title: {
-		fontSize: 24
-	}
-});
+const MyAccountRoute = () => (
+  <View style={[styles.scene, { backgroundColor: "red" }]} />
+);
 
-export default PlusScreen;
+const MyGoodsRoute = () => (
+  <View style={[styles.scene, { backgroundColor: "blue" }]} />
+);
+
+const MyServicesRoute = () => (
+  <View style={[styles.scene, { backgroundColor: "silver" }]} />
+);
+
+export default PlusScreen => {
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: "accountRoute", title: "Mon compte" },
+    { key: "servicesRoute", title: "Mes services" },
+    { key: "goodsRoute", title: "Mes biens" }
+  ]);
+
+  const initialLayout = { width: Dimensions.get("window").width };
+
+  const renderScene = SceneMap({
+    accountRoute: MyAccountRoute,
+    servicesRoute: MyServicesRoute,
+    goodsRoute: MyGoodsRoute
+  });
+  return (
+    <Container>
+      <Header hasSegment>
+        <Left>
+          <Button transparent>
+            <Icon name="arrow-back" />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Segments</Title>
+        </Body>
+        <Right>
+          <Button transparent>
+            <Icon name="search" />
+          </Button>
+        </Right>
+      </Header>
+      <Segment>
+        <Button first>
+          <Text>Bricolage</Text>
+        </Button>
+        <Button>
+          <Text>Ménage</Text>
+        </Button>
+        <Button last active>
+          <Text>Check-in-out</Text>
+        </Button>
+        <Button last>
+          <Text>Toutes</Text>
+        </Button>
+      </Segment>
+      <Content padder>
+        <Text>Segments</Text>
+        <Spinner color={Theme.AppColor} />
+      </Content>
+    </Container>
+  );
+};

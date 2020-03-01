@@ -17,6 +17,7 @@ export const GlobalFilter = {
       caption: "Bricolage",
       selected: false
     },
+
     {
       code: "FILTER-GLOBAL",
       caption: "Filtrer",

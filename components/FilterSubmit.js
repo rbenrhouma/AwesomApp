@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Theme } from "../appConstants/AppConstants";
 
 export default function FilterSubmit(props) {
-  const { text } = props;
+  const { text, onPress } = props;
   props;
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>{text}</Text>
       </View>
